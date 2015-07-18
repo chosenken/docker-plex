@@ -12,14 +12,14 @@ RUN echo "deb http://shell.ninthgate.se/packages/debian wheezy main" > /etc/apt/
 
 VOLUME ["/config","/mnt/Downloads"]
 
-ADD ./start.sh /start.sh
-RUN chmod u+x  /start.sh
-
 ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ENV RUN_AS_ROOT="true" \
     CHANGE_DIR_RIGHTS="false"
 
 EXPOSE 32400
+
+ADD ./start.sh /start.sh
+RUN chmod u+x  /start.sh
 
 CMD ["/start.sh"]
