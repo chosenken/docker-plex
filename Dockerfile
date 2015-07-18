@@ -1,5 +1,5 @@
-FROM timhaak/base:latest
-MAINTAINER tim@haak.co.uk
+FROM chosenken/base:latest
+MAINTAINER chosenken@gmail.com
 
 RUN echo "deb http://shell.ninthgate.se/packages/debian wheezy main" > /etc/apt/sources.list.d/plexmediaserver.list && \
     curl http://shell.ninthgate.se/packages/shell-ninthgate-se-keyring.key | apt-key add - && \
@@ -10,7 +10,7 @@ RUN echo "deb http://shell.ninthgate.se/packages/debian wheezy main" > /etc/apt/
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
-VOLUME ["/config","/data"]
+VOLUME ["/config","/mnt/Downloads"]
 
 ADD ./start.sh /start.sh
 RUN chmod u+x  /start.sh
