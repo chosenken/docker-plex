@@ -6,7 +6,7 @@ DATADIR=/mnt/Downloads
 USER=plex
 
 mkdir -p ${CONFIGDIR}/logs/supervisor
-chown -R ${USER} ${CONFIGDIR}
+# chown -R ${USER} ${CONFIGDIR}
 
 touch /supervisord.log
 touch /supervisord.pid

@@ -1,10 +1,12 @@
 FROM chosenken/base:latest
 MAINTAINER chosenken@gmail.com
 
-RUN echo "deb http://shell.ninthgate.se/packages/debian wheezy main" > /etc/apt/sources.list.d/plexmediaserver.list && \
-    curl http://shell.ninthgate.se/packages/shell-ninthgate-se-keyring.key | apt-key add - && \
-    apt-get -q update && \
-    apt-get install -qy --force-yes plexmediaserver && \
+ENV REFRESHED_ON 10-21-2015
+ENV PLEX_VER=0.9.12.14.1493-b925b67
+
+RUN curl -o /tmp/plex.deb  https://downloads.plex.tv/plex-media-server/${PLEX_VER}/plexmediaserver_${PLEX_VER}_amd64.deb && \
+    dpkg -i /tmp/plex.deb && \
+    apt-get install -f && \
     apt-get -y autoremove && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* && \
