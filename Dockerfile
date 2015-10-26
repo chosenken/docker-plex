@@ -1,8 +1,8 @@
 FROM chosenken/base:latest
 MAINTAINER chosenken@gmail.com
 
-ENV REFRESHED_ON 10-21-2015
-ENV PLEX_VER=0.9.12.14.1493-b925b67
+ENV REFRESHED_ON 10-26-2015
+ENV PLEX_VER=0.9.12.16.1509-8e31408
 
 RUN curl -o /tmp/plex.deb  https://downloads.plex.tv/plex-media-server/${PLEX_VER}/plexmediaserver_${PLEX_VER}_amd64.deb && \
     dpkg -i /tmp/plex.deb && \
